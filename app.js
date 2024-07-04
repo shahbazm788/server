@@ -28,30 +28,30 @@ const fileUpload = require("express-fileupload")
     { useNewUrlParser: true })
      .then(() => console.log('DB connected'))
      .catch( (error) => error);
-const customCorsOptions = {
-  origin: (origin, callback) => {
-    const allowedOrigins = [
-       "http://localhost:5173",
-       "http://localhost:3000",
-       "https://ecom-fawn-seven.vercel.app",
-       "https://dashboard-seven-khaki-73.vercel.app",
-       "https://dashboard-git-main-shahbazs-projects-37119fe0.vercel.app",
-       "https://dashboard-4o7wn91nl-shahbazs-projects-37119fe0.vercel.app/",
-       "https://ecom-8vpvtqst9-shahbazs-projects-37119fe0.vercel.app/",
-       "https://ecom-git-main-shahbazs-projects-37119fe0.vercel.app/",
-       "https://ecom-gamma-fawn.vercel.app/",
-       "https://ecom-8hfw1abp2-shahbazs-projects-37119fe0.vercel.app",
-       "https://ecom-git-main-shahbazs-projects-37119fe0.vercel.app/"
-      ];
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Request from unauthorized origin"));
-    }
-  },
-};
-app.use(cors(customCorsOptions));
-/*     
+// const customCorsOptions = {
+//   origin: (origin, callback) => {
+//     const allowedOrigins = [
+//        "http://localhost:5173",
+//        "http://localhost:3000",
+//        "https://ecom-fawn-seven.vercel.app",
+//        "https://dashboard-seven-khaki-73.vercel.app",
+//        "https://dashboard-git-main-shahbazs-projects-37119fe0.vercel.app",
+//        "https://dashboard-4o7wn91nl-shahbazs-projects-37119fe0.vercel.app/",
+//        "https://ecom-8vpvtqst9-shahbazs-projects-37119fe0.vercel.app/",
+//        "https://ecom-git-main-shahbazs-projects-37119fe0.vercel.app/",
+//        "https://ecom-gamma-fawn.vercel.app/",
+//        "https://ecom-8hfw1abp2-shahbazs-projects-37119fe0.vercel.app",
+//        "https://ecom-git-main-shahbazs-projects-37119fe0.vercel.app/"
+//       ];
+//     if (allowedOrigins.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Request from unauthorized origin"));
+//     }
+//   },
+// };
+// app.use(cors(customCorsOptions));
+     
  app.use(cors({
   credentials: true,
       origin:[
@@ -74,16 +74,11 @@ app.use(cors(customCorsOptions));
      
     })
   );
-*/
 
 
 
-// app.all('*', function(req, res, next) {
-//   const origin = cors.origin.includes(req.header('origin').toLowerCase()) ? req.headers.origin : cors.default;
-//   res.header("Access-Control-Allow-Origin", origin);
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
+
+
      
   app.use(cookieParser());
      app.use(bodyParser.json({ type: 'application/*+json' }));
