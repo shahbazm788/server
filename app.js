@@ -120,10 +120,7 @@ app.use('/admin', adminRouter);
 
 
 app.post("/products/create", async (req,res) => {
-    if(!req.cookies.jwt){
-      console.log("idantification false")
-    }
-    else{
+  
   //  console.log(req.cookies)
     const  file = req.files.file;
         const product_img = req.files.file.name;
@@ -147,7 +144,7 @@ app.post("/products/create", async (req,res) => {
     else{
       console.log("eror comse")
     }
-  }
+  
 
   })
 app.post("/addpost", async (req,res) => {
