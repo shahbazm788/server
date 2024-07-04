@@ -40,7 +40,9 @@ const fileUpload = require("express-fileupload")
        "https://dashboard-4o7wn91nl-shahbazs-projects-37119fe0.vercel.app/",
        "https://ecom-8vpvtqst9-shahbazs-projects-37119fe0.vercel.app/",
        "https://ecom-git-main-shahbazs-projects-37119fe0.vercel.app/",
-       "https://ecom-gamma-fawn.vercel.app/"
+       "https://ecom-gamma-fawn.vercel.app/",
+       "https://ecom-8hfw1abp2-shahbazs-projects-37119fe0.vercel.app",
+       "https://ecom-git-main-shahbazs-projects-37119fe0.vercel.app/"
       ],
      
   
