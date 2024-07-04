@@ -119,7 +119,37 @@ app.use('/admin', adminRouter);
 
 
 
+app.post("/products/create", async (req,res) => {
+    if(!req.cookies.jwt){
+      console.log("idantification false")
+    }
+    else{
+  //  console.log(req.cookies)
+    const  file = req.files.file;
+        const product_img = req.files.file.name;
+    const uploade_path = oneStepBack +"/img/" + product_img;
+  const newProduct = new Product(
+ { title:req.body.title,
+ category:req.body.category,
+ sub_category:req.body.sub_category,
+    supplier:req.body.supplier,
+    imageUrl:product_img,
+    price:req.body.price,
+    description:req.body.content,
+    product_location:req.body.product_location }
+      );
+    const result =   await newProduct.save();
+    if(result){
+          const uplodedImg =  uploadImgFunction(file,uploade_path);
+      res.status(200).json("Prduct Created Successfully");
+      console.log(result);
+    }
+    else{
+      console.log("eror comse")
+    }
+  }
 
+  })
 app.post("/addpost", async (req,res) => {
   console.log(req.body)
 //  console.log(req.files.file);
