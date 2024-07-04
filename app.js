@@ -31,9 +31,19 @@ const fileUpload = require("express-fileupload")
      
  app.use(cors({
   credentials: true,
-     /* origin:["http://localhost:5173","http://localhost:3000","https://ecom-fawn-seven.vercel.app/","https://dashboard-seven-khaki-73.vercel.app","https://dashboard-git-main-shahbazs-projects-37119fe0.vercel.app","https://dashboard-4o7wn91nl-shahbazs-projects-37119fe0.vercel.app/","https://ecom-8vpvtqst9-shahbazs-projects-37119fe0.vercel.app/","https://ecom-git-main-shahbazs-projects-37119fe0.vercel.app/","https://ecom-gamma-fawn.vercel.app/"],
-     */
-  origin:"*",
+      origin:[
+       "http://localhost:5173",
+       "http://localhost:3000",
+       "https://ecom-fawn-seven.vercel.app",
+       "https://dashboard-seven-khaki-73.vercel.app",
+       "https://dashboard-git-main-shahbazs-projects-37119fe0.vercel.app",
+       "https://dashboard-4o7wn91nl-shahbazs-projects-37119fe0.vercel.app/",
+       "https://ecom-8vpvtqst9-shahbazs-projects-37119fe0.vercel.app/",
+       "https://ecom-git-main-shahbazs-projects-37119fe0.vercel.app/",
+       "https://ecom-gamma-fawn.vercel.app/"
+      ],
+     
+  
   methods: ["GET", "POST", "PUT", "DELETE"],
        credentials: true,
      
