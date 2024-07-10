@@ -13,10 +13,10 @@ const uploadImgFunction = async (file,path) => {
 
 module.exports={
   createProduct: async (req,res) => {
-    if(!req.cookies.jwt){
+  /*  if(!req.cookies.jwt){
       console.log("idantification false")
     }
-    else{
+    else{*/
   //  console.log(req.cookies)
     const  file = req.files.file;
         const product_img = req.files.file.name;
@@ -40,7 +40,7 @@ module.exports={
     else{
       console.log("eror comse")
     }
-  }
+  //}
 
   },
   updateProduct: async (req,res) => {

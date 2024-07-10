@@ -28,15 +28,57 @@ const fileUpload = require("express-fileupload")
     { useNewUrlParser: true })
      .then(() => console.log('DB connected'))
      .catch( (error) => error);
+// const customCorsOptions = {
+//   origin: (origin, callback) => {
+//     const allowedOrigins = [
+//        "http://localhost:5173",
+//        "http://localhost:3000",
+//        "https://ecom-fawn-seven.vercel.app",
+//        "https://dashboard-seven-khaki-73.vercel.app",
+//        "https://dashboard-git-main-shahbazs-projects-37119fe0.vercel.app",
+//        "https://dashboard-4o7wn91nl-shahbazs-projects-37119fe0.vercel.app/",
+//        "https://ecom-8vpvtqst9-shahbazs-projects-37119fe0.vercel.app/",
+//        "https://ecom-git-main-shahbazs-projects-37119fe0.vercel.app/",
+//        "https://ecom-gamma-fawn.vercel.app/",
+//        "https://ecom-8hfw1abp2-shahbazs-projects-37119fe0.vercel.app",
+//        "https://ecom-git-main-shahbazs-projects-37119fe0.vercel.app/"
+//       ];
+//     if (allowedOrigins.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Request from unauthorized origin"));
+//     }
+//   },
+// };
+// app.use(cors(customCorsOptions));
      
  app.use(cors({
   credentials: true,
-      origin:["http://localhost:5173","http://localhost:3000"],
-      methods: ["GET", "POST", "PUT", "DELETE"],
+      origin:[
+       "http://localhost:5173",
+       "http://localhost:3000",
+       "https://ecom-fawn-seven.vercel.app",
+       "https://dashboard-seven-khaki-73.vercel.app",
+       "https://dashboard-git-main-shahbazs-projects-37119fe0.vercel.app",
+       "https://dashboard-4o7wn91nl-shahbazs-projects-37119fe0.vercel.app/",
+       "https://ecom-8vpvtqst9-shahbazs-projects-37119fe0.vercel.app/",
+       "https://ecom-git-main-shahbazs-projects-37119fe0.vercel.app/",
+       "https://ecom-gamma-fawn.vercel.app/",
+       "https://ecom-8hfw1abp2-shahbazs-projects-37119fe0.vercel.app",
+       "https://ecom-git-main-shahbazs-projects-37119fe0.vercel.app/"
+      ],
+     
+  
+  methods: ["GET", "POST", "PUT", "DELETE"],
        credentials: true,
      
     })
-  )
+  );
+
+
+
+
+
      
   app.use(cookieParser());
      app.use(bodyParser.json({ type: 'application/*+json' }));
@@ -77,7 +119,34 @@ app.use('/admin', adminRouter);
 
 
 
+app.post("/products/create", async (req,res) => {
+  
+  //  console.log(req.cookies)
+    const  file = req.files.file;
+        const product_img = req.files.file.name;
+    const uploade_path = oneStepBack +"/img/" + product_img;
+  const newProduct = new Product(
+ { title:req.body.title,
+ category:req.body.category,
+ sub_category:req.body.sub_category,
+    supplier:req.body.supplier,
+    imageUrl:product_img,
+    price:req.body.price,
+    description:req.body.content,
+    product_location:req.body.product_location }
+      );
+    const result =   await newProduct.save();
+    if(result){
+          const uplodedImg =  uploadImgFunction(file,uploade_path);
+      res.status(200).json("Prduct Created Successfully");
+      console.log(result);
+    }
+    else{
+      console.log("eror comse")
+    }
+  
 
+  })
 app.post("/addpost", async (req,res) => {
   console.log(req.body)
 //  console.log(req.files.file);

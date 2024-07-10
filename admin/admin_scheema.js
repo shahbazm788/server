@@ -71,7 +71,7 @@ const adminRegistorSchema = new mongoose.Schema({
 // creating schema methode for  JWT token 
 adminRegistorSchema.methods.genreatToken =  async function(next){
     try {
-        const userToken = await jwt.sign({_id:this._id}, process.env.SECRET_KEY)
+        const userToken = await jwt.sign({_id:this._id}, "mynameisshahbazandiamlivinginkarachipakistan")
         this.tokens = this.tokens.concat({token:userToken})
         return userToken;
     } catch (e) {
