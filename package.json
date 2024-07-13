@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,6 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.2.4",
     "node-pre-gyp": "^0.17.0",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.4"
   }
 }

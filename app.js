@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 const app = express();
 const userRouter = require("./auth/routs/userRouter.js");
 const adminRouter = require('./admin/admin_router.js');
+const orderRouter = require("./routes/order_router.js");
 const reviewRouter = require("./reviews/reviews_router.js");
 const catRouter = require("./categories/category_routs.js");
 const DB = "mongodb+srv://shahbazm788:wpd.jj.dpw@cluster0.ugwiuxd.mongodb.net/futnitureapp";
@@ -15,7 +16,7 @@ const Catagory = require("./categories/category_schema.js");
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const fileUpload = require("express-fileupload")
-
+  
 // Use cookie parser middleware to parse cookies
 
 
@@ -109,6 +110,7 @@ app.use("/review",reviewRouter);
 
 app.use("/user",userRouter);
 app.use('/admin', adminRouter);
+app.use("/order",orderRouter);
 //app.post("/user/create",(req,res) =>{
 //  console.log(req.body)
 //});
@@ -311,7 +313,10 @@ app.post("/reguser",async (req,res) => {
 app.post("/uploadimg",(req,res) => {
   console.log(req.body)
 })
-app.listen(process.env.PORT,() => {
+// app.listen(process.env.PORT,() => {
+//   console.log("connected");
+// }) 
+app.listen(5000,() => {
   console.log("connected");
 }) 
 
