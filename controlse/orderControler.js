@@ -9,7 +9,20 @@ module.exports = {
         // console.log("yes");
         res.send("orders sending")
     },
-    submitOrder : async (req,res) => {
-        console.log("ordring");
+    submitOrder :  (req,res) => {
+        const newOrder = new Order({
+            user_id : req.body.user_id,
+            user_name:req.body.user_name,
+            user_email:req.body.user_email,
+            user_phone:req.body.user_phone,
+            user_address:req.body.user_address,
+            orderd_products : req.body.orderd_products,
+            payment_status: req.body.payment_status,
+            orderd_at : new Date(),
+        
+        });
+        console.log(newOrder);
+        res.send("ok")
     }
 }
+
