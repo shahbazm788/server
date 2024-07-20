@@ -8,9 +8,10 @@ const orderSchema = new mongoose.Schema({
     user_phone:{type: String},
     user_address:{type: String},
     orderd_products : [{
-        product_id : mongoose.Schema.Types.ObjectId,
-        qty: Number,
-        produt_price: Number,
+        productId : mongoose.Schema.Types.ObjectId,
+        productTitle: String,
+        qt: Number,
+        productPrice: Number,
     }],
     order_status: {type : String, defalt:"pendding"},
     payment_status: {type : String},

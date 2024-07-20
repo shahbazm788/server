@@ -10,6 +10,7 @@ module.exports = {
         res.send("orders sending")
     },
     submitOrder :  (req,res) => {
+       // console.log(req.body)
         const newOrder = new Order({
             user_id : req.body.user_id,
             user_name:req.body.user_name,
