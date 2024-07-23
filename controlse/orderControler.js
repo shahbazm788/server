@@ -19,6 +19,7 @@ module.exports = {
             user_address:req.body.user_address,
             orderd_products : req.body.orderd_products,
             payment_status: req.body.payment_status,
+            totalAmount: req.body.totalAmount,
             orderd_at : new Date(),
         
         });

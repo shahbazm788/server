@@ -15,6 +15,7 @@ const orderSchema = new mongoose.Schema({
     }],
     order_status: {type : String, defalt:"pendding"},
     payment_status: {type : String},
+    totalAmount:{type:String},
     orderd_at : {type:String},
 
 
